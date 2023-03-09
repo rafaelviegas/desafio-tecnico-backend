@@ -25,7 +25,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
 //DB
 Card.sync();
 User.sync()
@@ -36,12 +35,12 @@ app.use('/', Index);
 app.use(AuthRoutes);
 app.use(CardRoutes);
 app.use(async (err: BaseError, req: Request, res: Response, next: NextFunction) => {
-    if (!errorHandler.isTrustedError(err)) {
-      next(err);
-    }
+
+    if (!errorHandler.isTrustedError(err))
+        next(err);
     
     await errorHandler.handleError(err, res);
-    
 });
+
 
 app.listen(5000, () => 'server running on port 5000')

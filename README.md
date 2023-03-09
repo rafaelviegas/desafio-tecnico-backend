@@ -70,6 +70,7 @@ docker-compose up -d
 
 ```
 
-## 📌 Observações
-
-
+## 📌 Observações & Pendências
+- Refatorar para uso do InversifyJS como container de inversão de controle/injeção de dependência;
+- Implementação do Jest para testes unitários;
+- Diversas outras refatorações...

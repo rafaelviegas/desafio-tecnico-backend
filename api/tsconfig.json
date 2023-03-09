@@ -45,6 +45,7 @@
       "@infra/data/repositories/*": ["./src/infra/data/repositories/*"],
       "@infra/handlers/errors/*": ["./src/infra/handlers/errors/*"],
       "@infra/logger/*": ["./src/infra/handlers/logger/*"],
+      "@api/middlewares/*": ["./src/api/middlewares/*"]
     },                                      
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */

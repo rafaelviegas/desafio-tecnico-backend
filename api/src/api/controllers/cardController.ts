@@ -25,7 +25,6 @@ export default class AuthController {
 
             next(error);
         }           
-                   
     }
 
     public async AddCardAsync(req: IRequest<AddCardRequest>, res: Response, next: NextFunction) {
@@ -48,7 +47,9 @@ export default class AuthController {
 
             await this._cardservice
                 .UpdateCardAsync(req.params.id, req.body)
-                .then((updatedCard)=> res.status(200).send(updatedCard));
+                .then((updatedCard)=> {
+                    res.status(200).send(updatedCard)
+                });
 
         } catch (error) {
 
