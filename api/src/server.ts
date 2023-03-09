@@ -2,16 +2,14 @@ import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import AuthRoutes from '@routes/authRoutes';
 import CardRoutes from '@routes/cardRoutes';
+import Index from '@routes/index';
 import User from "src/infra/data/models/user";
 import Card from 'src/infra/data/models/card';
 import Data from '@config/seed';
 import { errorHandler } from '@infra/handlers/errors/errorHandler';
 import { BaseError } from '@infra/handlers/errors/baseError';
 
-
 const app = express();
-
-
 
 app.use(bodyParser.json({
     limit: '2mb'
@@ -27,15 +25,14 @@ app.use((req, res, next) => {
     next();
 });
 
-//Carregar rotas
-const indexRoute = require('./api/routes/index');
 
 //DB
 Card.sync();
 User.sync()
 .then(()=> Data.seed());
 
-app.use('/', indexRoute);
+//Carregar rotas
+app.use('/', Index);
 app.use(AuthRoutes);
 app.use(CardRoutes);
 app.use(async (err: BaseError, req: Request, res: Response, next: NextFunction) => {
@@ -46,4 +43,5 @@ app.use(async (err: BaseError, req: Request, res: Response, next: NextFunction) 
     await errorHandler.handleError(err, res);
     
 });
+
 app.listen(5000, () => 'server running on port 5000')

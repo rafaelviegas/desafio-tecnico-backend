@@ -32,7 +32,7 @@ npm run dev
 yarn dev
 
 ```
-### Variáveis de ambiente
+### 🔧 Variáveis de ambiente
 
 Para rodar a aplicação é necessário a definição das seguintes variáveis de ambiente:
 
@@ -48,7 +48,7 @@ DEFAULT_PASSWORD=<DEFAULT_PASSWORD>
 
 Abra http://localhost:5000 no seu browser para ver o resultado.
 
-## Rodando o Frontend
+## 🚀 Rodando o Frontend
 
 Um frontend de exemplo foi disponibilizado na pasta app.
 

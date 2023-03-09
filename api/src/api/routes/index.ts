@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
 
-const router = Router();
+const route = Router();
 
-const route = router.get('/', (req: Request, res: Response) => {
+route.get('/', (req: Request, res: Response) => {
     res.status(200).send({
         title: "Kanban API",
         version: "1.0.0",
@@ -11,6 +11,6 @@ const route = router.get('/', (req: Request, res: Response) => {
   })
 
 
-module.exports = router;
+export default route;
 
 
