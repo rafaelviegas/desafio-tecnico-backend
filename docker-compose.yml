@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  backend:
+    env_file:
+        "./api/.env"
+    build:
+      context: ./api
+      dockerfile: ./Dockerfile
+    image: "kanban-api:latest"
+    ports:
+      - "5000:5000"
+  frontend:
+    build:
+      context: ./app
+      dockerfile: ./Dockerfile
+    image: "kanban-app:latest"
+    ports:
+      - "3000:80"
